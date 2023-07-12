@@ -2,7 +2,7 @@ version: '3.3'
 
 networks:
   cws:
-    external: true
+    driver: bridge
 services:
   mysql_db:
     container_name: mysql-cluster
@@ -14,7 +14,7 @@ services:
       - 3006:3006
     restart: unless-stopped
     networks:
-      - cws
+      - docker-laravel-nginx_web-app
 
   phpmyadmin:
     image: phpmyadmin:latest
@@ -24,4 +24,4 @@ services:
       - PMA_ARBITRARY=1
     restart: unless-stopped
     networks:
-      - cws
+      - docker-laravel-nginx_web-app
