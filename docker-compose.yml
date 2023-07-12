@@ -1,9 +1,8 @@
 version: '3.3'
 
 networks:
-  default: 
-    external: 
-      name: cws 
+  docker-laravel-nginx_web-app:
+    external: true
 services:
   mysql_db:
     container_name: mysql-cluster
@@ -14,6 +13,8 @@ services:
     ports:
       - 3006:3006
     restart: unless-stopped
+    networks:
+      - docker-laravel-nginx_web-app
 
   phpmyadmin:
     image: phpmyadmin:latest
@@ -22,3 +23,5 @@ services:
     environment:
       - PMA_ARBITRARY=1
     restart: unless-stopped
+    networks:
+      - docker-laravel-nginx_web-app
