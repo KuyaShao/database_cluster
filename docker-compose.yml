@@ -8,8 +8,7 @@ services:
       MYSQL_DATABASE: web-app
     ports:
       - 3006:3006
-    restart:
-      - "unless-stopped"
+    restart: unless-stopped
 
   phpmyadmin:
     image: phpmyadmin:latest
@@ -17,5 +16,4 @@ services:
       - 9001:80
     environment:
       - PMA_ARBITRARY=1
-    restart:
-      - "unless-stopped"
+    restart: unless-stopped
