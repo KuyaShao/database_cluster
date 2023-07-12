@@ -1,5 +1,8 @@
 version: '3.3'
 
+networks:
+  docker-laravel-nginx_web-app:
+    external: true
 services:
   mysql_db:
     image: mysql:latest
@@ -10,8 +13,8 @@ services:
       - 3006:3006
     restart: unless-stopped
     networks:
-      - web-app
-      
+      - docker-laravel-nginx_web-app
+
   phpmyadmin:
     image: phpmyadmin:latest
     ports:
@@ -20,4 +23,4 @@ services:
       - PMA_ARBITRARY=1
     restart: unless-stopped
     networks:
-      - web-app
+      - docker-laravel-nginx_web-app
