@@ -5,6 +5,7 @@ networks:
     external: true
 services:
   mysql_db:
+    container_name: mysql-cluster
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: root
